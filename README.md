@@ -2,7 +2,7 @@
 
 ## Generate slash commands for Claude Code agents and create multi-agent workflows
 
-[![npm version](https://badge.fury.io/js/cc-slash-agents.svg)](https://www.npmjs.com/package/cc-slash-agents)
+[![npm version](https://badge.fury.io/js/@entro314labs%2Fcc-slash-agents.svg)](https://www.npmjs.com/package/@entro314labs/cc-slash-agents)
 [![Node.js CI](https://github.com/entro314-labs/cc-slash-agents/workflows/Node.js%20CI/badge.svg)](https://github.com/entro314-labs/cc-slash-agents/actions)
 
 ## Problem
@@ -22,13 +22,13 @@ your powerful agents as easy to use as built-in commands.
 ## Installation
 
 ```bash
-npm install -g cc-slash-agents
+npm install -g @entro314labs/cc-slash-agents
 ```
 
 Or use directly with npx:
 
 ```bash
-npx cc-slash-agents generate
+npx @entro314labs/cc-slash-agents generate
 ```
 
 ## Quick Start
@@ -297,7 +297,7 @@ MIT © Entro314 Labs
 
 - [Claude Code Documentation](https://docs.anthropic.com/claude-code)
 - [GitHub Repository](https://github.com/entro314-labs/cc-slash-agents)
-- [npm Package](https://www.npmjs.com/package/cc-slash-agents)
+- [npm Package](https://www.npmjs.com/package/@entro314labs/cc-slash-agents)
 - [Issues & Support](https://github.com/entro314-labs/cc-slash-agents/issues)
 
 ---
