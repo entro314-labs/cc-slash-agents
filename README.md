@@ -8,8 +8,8 @@
 
 Claude Code has powerful agents for specialized tasks, but they're not as intuitive to use as slash commands:
 
-- **Agents**: `"Please use the code-reviewer agent to analyze this file"` 😫
-- **Commands**: `/review-code` ✨
+- **Agents**: `"Please use the code-reviewer agent to analyze this file"` 
+- **Commands**: `/review-code` 
 
 This CLI bridges that gap by generating slash commands from your agents automatically.
 
