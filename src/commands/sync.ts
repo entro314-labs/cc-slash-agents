@@ -13,7 +13,7 @@ export function addSyncCommand(program: Command) {
     .option('-c, --clean', 'Remove orphaned generated commands', false)
     .option('-v, --verbose', 'Show detailed output', false)
     .action(async (options) => {
-      Logger.setVerbose(options.verbose)
+      Logger.setVerbose(options.verbose ?? false)
 
       try {
         await syncCommands(options)

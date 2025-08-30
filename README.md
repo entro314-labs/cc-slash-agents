@@ -1,9 +1,9 @@
 # cc-slash-agents (ccsa)
 
-**Generate slash commands for Claude Code agents and create multi-agent workflows**
+## Generate slash commands for Claude Code agents and create multi-agent workflows
 
 [![npm version](https://badge.fury.io/js/cc-slash-agents.svg)](https://www.npmjs.com/package/cc-slash-agents)
-[![Node.js CI](https://github.com/yourusername/cc-slash-agents/workflows/Node.js%20CI/badge.svg)](https://github.com/yourusername/cc-slash-agents/actions)
+[![Node.js CI](https://github.com/entro314-labs/cc-slash-agents/workflows/Node.js%20CI/badge.svg)](https://github.com/entro314-labs/cc-slash-agents/actions)
 
 ## Problem
 
@@ -16,7 +16,8 @@ This CLI bridges that gap by generating slash commands from your agents automati
 
 ## Solution
 
-`cc-slash-agents` (alias: `ccsa`) scans your Claude Code agents and generates corresponding slash commands, making your powerful agents as easy to use as built-in commands.
+`cc-slash-agents` (alias: `ccsa`) scans your Claude Code agents and generates corresponding slash commands, making
+your powerful agents as easy to use as built-in commands.
 
 ## Installation
 
@@ -33,11 +34,13 @@ npx cc-slash-agents generate
 ## Quick Start
 
 1. **Initialize structure** (if needed):
+
    ```bash
    ccsa init
    ```
 
 2. **Create or use existing agents** in `.claude/agents/`:
+
    ```markdown
    ---
    name: code-reviewer
@@ -49,11 +52,13 @@ npx cc-slash-agents generate
    ```
 
 3. **Generate slash commands**:
+
    ```bash
    ccsa generate
    ```
 
 4. **Use in Claude Code**:
+
    ```bash
    /review-code src/components/Header.tsx
    ```
@@ -61,6 +66,7 @@ npx cc-slash-agents generate
 ## Commands
 
 ### `ccsa generate`
+
 Generate slash commands from your agents
 
 ```bash
@@ -72,6 +78,7 @@ ccsa generate --force           # Overwrite existing commands
 ```
 
 ### `ccsa list`
+
 Show all agents and generated commands
 
 ```bash
@@ -82,6 +89,7 @@ ccsa list --scope user          # Show user-level only
 ```
 
 ### `ccsa sync`
+
 Update commands when agents change
 
 ```bash
@@ -91,6 +99,7 @@ ccsa sync --scope both         # Sync both project and user
 ```
 
 ### `ccsa init`
+
 Initialize Claude directory structure
 
 ```bash
@@ -99,6 +108,7 @@ ccsa init --global              # Initialize ~/.claude/ for user
 ```
 
 ### `ccsa clean`
+
 Remove generated commands
 
 ```bash
@@ -110,18 +120,23 @@ ccsa clean --scope user         # Clean user commands
 ## How It Works
 
 ### 1. Agent Discovery
+
 Scans your agents directories:
+
 - **Project**: `.claude/agents/` (shared with team)
 - **User**: `~/.claude/agents/` (personal, global)
 
 ### 2. Smart Naming
+
 Converts agent names to intuitive commands:
+
 - `cli-integrity-analyzer` → `/analyze-integrity`
 - `senior-code-reviewer` → `/review-code`
 - `mindful-dev` → `/mindful-dev`
 - `docs-architect` → `/create-docs`
 
 ### 3. Command Generation
+
 Creates properly formatted slash commands:
 
 ```markdown
@@ -139,12 +154,14 @@ Arguments: $ARGUMENTS
 ```
 
 ### 4. Conflict Resolution
+
 Handles naming conflicts automatically:
+
 - `code-reviewer` + `senior-code-reviewer` → `/review-code` + `/review-code-senior`
 
 ## File Structure
 
-```
+```text
 your-project/
 ├── .claude/
 │   ├── agents/           # Your custom agents
@@ -164,6 +181,7 @@ your-project/
 ## Examples
 
 ### Basic Usage
+
 ```bash
 # Generate commands from project agents
 ccsa generate
@@ -178,6 +196,7 @@ ccsa list
 ```
 
 ### Team Workflow
+
 ```bash
 # Team creates agents in .claude/agents/
 git add .claude/agents/
@@ -190,6 +209,7 @@ ccsa generate
 ```
 
 ### Personal Productivity
+
 ```bash
 # Set up personal agents
 ccsa init --global
@@ -204,6 +224,7 @@ ccsa generate --scope user
 ## Advanced Features
 
 ### Multi-Agent Workflows
+
 Coming soon: Pipeline commands that coordinate multiple agents:
 
 ```bash
@@ -213,6 +234,7 @@ ccsa pipeline create "full-review" \
 ```
 
 ### Custom Templates
+
 Coming soon: Customize command generation templates:
 
 ```bash
@@ -222,16 +244,19 @@ ccsa generate --template custom-template.md
 ## Best Practices
 
 ### Agent Design
+
 - **Clear descriptions**: Include "Use PROACTIVELY" for auto-invocation
 - **Specific tools**: List only required tools for better security
 - **Good naming**: Use descriptive, consistent naming patterns
 
-### Team Workflow
+### Collaboration
+
 - **Version control**: Check `.claude/agents/` into git
 - **Documentation**: Use `ccsa init` to create helpful README files
 - **Sync regularly**: Run `ccsa sync` when agents change
 
 ### Maintenance
+
 - **Regular updates**: Use `ccsa sync --clean` to remove orphaned commands
 - **Review generated**: Check generated commands match expectations
 - **Monitor usage**: Use `ccsa list` to see what's available
@@ -239,16 +264,19 @@ ccsa generate --template custom-template.md
 ## Troubleshooting
 
 ### Commands not appearing in Claude Code?
+
 - Ensure commands are in `.claude/commands/` directory
 - Restart Claude Code if needed
 - Check file permissions
 
 ### Agent not generating command?
+
 - Verify agent has required frontmatter (`name`, `description`)
 - Check for YAML syntax errors
 - Use `ccsa list` to see discovered agents
 
 ### Naming conflicts?
+
 - `ccsa list` shows resolved names
 - Use `--force` to overwrite existing commands
 - Consider renaming agents for clarity
@@ -263,15 +291,15 @@ ccsa generate --template custom-template.md
 
 ## License
 
-MIT © [Your Name]
+MIT © Entro314 Labs
 
 ## Links
 
 - [Claude Code Documentation](https://docs.anthropic.com/claude-code)
-- [GitHub Repository](https://github.com/yourusername/cc-slash-agents)
+- [GitHub Repository](https://github.com/entro314-labs/cc-slash-agents)
 - [npm Package](https://www.npmjs.com/package/cc-slash-agents)
-- [Issues & Support](https://github.com/yourusername/cc-slash-agents/issues)
+- [Issues & Support](https://github.com/entro314-labs/cc-slash-agents/issues)
 
 ---
 
-**Made with ❤️ for the Claude Code community**
+## Made with ❤️ for the Claude Code community

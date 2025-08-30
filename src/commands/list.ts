@@ -13,7 +13,7 @@ export function addListCommand(program: Command) {
     .option('-c, --commands-only', 'Show only commands', false)
     .option('-v, --verbose', 'Show detailed information', false)
     .action(async (options) => {
-      Logger.setVerbose(options.verbose)
+      Logger.setVerbose(options.verbose ?? false)
 
       try {
         await listAgentsAndCommands(options)

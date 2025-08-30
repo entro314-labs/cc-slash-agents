@@ -16,7 +16,7 @@ export function addGenerateCommand(program: Command) {
     .option('-f, --force', 'Overwrite existing files', false)
     .option('-v, --verbose', 'Show detailed output', false)
     .action(async (options: GenerateOptions) => {
-      Logger.setVerbose(options.verbose)
+      Logger.setVerbose(options.verbose ?? false)
 
       try {
         await generateCommands(options)

@@ -11,7 +11,7 @@
     "development",
     "anthropic"
   ],
-  "author": "Your Name",
+  "author": "Entro314 Labs",
   "license": "MIT",
   "main": "dist/cli.js",
   "type": "module",
@@ -61,10 +61,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/cc-slash-agents.git"
+    "url": "git+https://github.com/entro314-labs/cc-slash-agents.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/cc-slash-agents/issues"
+    "url": "https://github.com/entro314-labs/cc-slash-agents/issues"
   },
-  "homepage": "https://github.com/yourusername/cc-slash-agents#readme"
+  "homepage": "https://github.com/entro314-labs/cc-slash-agents#readme"
 }

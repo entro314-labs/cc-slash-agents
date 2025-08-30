@@ -26,7 +26,7 @@ program
   .option('-v, --verbose', 'Enable verbose logging')
   .hook('preAction', (thisCommand) => {
     const options = thisCommand.opts()
-    Logger.setVerbose(options.verbose)
+    Logger.setVerbose(options.verbose ?? false)
   })
 
 // Add subcommands
