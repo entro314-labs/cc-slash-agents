@@ -3,7 +3,6 @@
 ## Generate slash commands for Claude Code agents and create multi-agent workflows
 
 [![npm version](https://badge.fury.io/js/@entro314labs%2Fcc-slash-agents.svg)](https://www.npmjs.com/package/@entro314labs/cc-slash-agents)
-[![Node.js CI](https://github.com/entro314-labs/cc-slash-agents/workflows/Node.js%20CI/badge.svg)](https://github.com/entro314-labs/cc-slash-agents/actions)
 
 ## Problem
 
