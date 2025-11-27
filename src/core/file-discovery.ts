@@ -94,7 +94,21 @@ export class FileDiscovery {
     }
 
     const content = readFileSync(filePath, 'utf-8')
-    const parsed = matter(content)
+    let parsed: matter.GrayMatterFile<string>
+
+    try {
+      parsed = matter(content)
+    } catch (error) {
+      // Try to recover from common YAML errors (like unquoted colons in values)
+      try {
+        const fixedContent = FileDiscovery.fixFrontmatter(content)
+        parsed = matter(fixedContent)
+        Logger.debug(`Recovered malformed agent file: ${filePath}`)
+      } catch (retryError) {
+        // If recovery fails, throw the original error to be caught by the caller
+        throw error
+      }
+    }
 
     // Validate required frontmatter fields
     const frontmatter = parsed.data as AgentFrontmatter
@@ -130,6 +144,42 @@ export class FileDiscovery {
       content: parsed.content,
       scope,
     }
+  }
+
+  /**
+   * Attempt to fix common frontmatter issues
+   */
+  private static fixFrontmatter(content: string): string {
+    const match = content.match(/^---\n([\s\S]*?)\n---/)
+    if (!match) return content
+
+    const frontmatter = match[1]
+    const lines = frontmatter.split('\n')
+    const fixedLines = lines.map(line => {
+      const keyValMatch = line.match(/^(\s*[\w-]+):\s*(.*)$/)
+      if (keyValMatch) {
+        const key = keyValMatch[1]
+        let value = keyValMatch[2]
+
+        // If value is not empty, not quoted, and contains special chars that might confuse YAML
+        // We skip values that look like arrays or objects (start with [ or {)
+        if (value &&
+            !value.startsWith('"') &&
+            !value.startsWith("'") &&
+            !value.startsWith("[") &&
+            !value.startsWith("{") &&
+            (value.includes(':') || value.includes('#'))) {
+
+          // Escape existing double quotes
+          value = value.replace(/"/g, '\\"')
+          return `${key}: "${value}"`
+        }
+      }
+      return line
+    })
+
+    const newFrontmatter = fixedLines.join('\n')
+    return content.replace(match[1], newFrontmatter)
   }
 
   /**

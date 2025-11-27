@@ -81,6 +81,24 @@ Nested agent content.`,
       const agents = await FileDiscovery.discoverAgents('both')
       expect(agents).toHaveLength(0)
     })
+
+    it('should recover from unquoted colons in frontmatter', async () => {
+      vol.fromJSON({
+        '/test-project/.claude/agents/unquoted-colon.md': `---
+name: unquoted-colon
+description: This description has a colon: right here. Examples: <example>
+tools: Read
+---
+
+Content here.`,
+      })
+
+      const agents = await FileDiscovery.discoverAgents('project')
+      const agent = agents.find((a) => a.frontmatter.name === 'unquoted-colon')
+
+      expect(agent).toBeDefined()
+      expect(agent!.frontmatter.description).toContain('This description has a colon: right here')
+    })
   })
 
   describe('discoverCommands', () => {

@@ -1,6 +1,6 @@
 {
   "name": "@entro314labs/cc-slash-agents",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Generate slash commands for Claude Code agents and create multi-agent workflows",
   "keywords": [
     "claude-code",
