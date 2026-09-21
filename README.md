@@ -160,7 +160,7 @@ Handles naming conflicts automatically:
 
 ## File Structure
 
-```text
+```tree
 your-project/
 ├── .claude/
 │   ├── agents/           # Your custom agents
