@@ -1,2 +1,7 @@
 allowBuilds:
   esbuild: true
+
+# markdownlint-cli2 pulls katex ^0.16 through micromark-extension-math; every 0.16 release is
+# affected by GHSA-238p-pmpm-9mq7 (fixed in 0.18.2), which fails `pnpm audit` in CI.
+overrides:
+  'katex@<0.18.2': '>=0.18.2'
