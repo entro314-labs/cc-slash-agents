@@ -8,8 +8,8 @@
 
 Claude Code has powerful agents for specialized tasks, but they're not as intuitive to use as slash commands:
 
-- **Agents**: `"Please use the code-reviewer agent to analyze this file"` 
-- **Commands**: `/review-code` 
+- **Agents**: `"Please use the code-reviewer agent to analyze this file"`
+- **Commands**: `/review-code`
 
 This CLI bridges that gap by generating slash commands from your agents automatically.
 
@@ -46,8 +46,7 @@ npx @entro314labs/cc-slash-agents generate
    description: Expert code review specialist. Use PROACTIVELY for quality analysis.
    tools: Read, Grep, Edit
    ---
-   
-   You are a senior code reviewer focusing on quality and best practices...
+      You are a senior code reviewer focusing on quality and best practices...
    ```
 
 3. **Generate slash commands**:
@@ -140,6 +139,7 @@ Creates properly formatted slash commands:
 
 ```markdown
 ---
+
 description: Review code - expert analysis for quality and security  
 argument-hint: "file paths or specific areas to review"
 allowed-tools: [Read, Grep, Edit]
@@ -285,7 +285,7 @@ ccsa generate --template custom-template.md
 1. Fork the repository
 2. Create your feature branch: `git checkout -b feature/amazing-feature`
 3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`  
+4. Push to the branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
 ## License

@@ -4,7 +4,7 @@
 
 - Simple prompt templates stored in `.claude/commands/`
 - Execute immediately when called
-- Best for repetitive, standardized operations  
+- Best for repetitive, standardized operations
 - No separate context - run in main conversation
 - Support `$ARGUMENTS` for parameters
 
@@ -37,6 +37,7 @@ Create slash commands that explicitly invoke specific agents:
 
 ```markdown
 # .claude/commands/run-tests.md
+
 Use the test-runner subagent to run tests in this project and fix any failures.
 ```
 
@@ -45,8 +46,10 @@ Use the test-runner subagent to run tests in this project and fix any failures.
 Create commands that initiate multi-agent workflows:
 
 ```markdown
-# .claude/commands/full-review.md  
+# .claude/commands/full-review.md
+
 Please review this code using:
+
 1. The code-reviewer agent for quality analysis
 2. The security-scanner agent for vulnerability checks
 3. The performance-analyzer agent for optimization suggestions
@@ -71,7 +74,7 @@ Coordinate between these agents and provide a consolidated report.
 **Consider a command naming convention**:
 
 - `/run-xxx` for agent invocation commands
-- `/get-xxx` for data retrieval commands  
+- `/get-xxx` for data retrieval commands
 - `/fix-xxx` for immediate action commands
 
 The goal is making both types easily discoverable and intuitive to invoke, rather than forcing

@@ -155,7 +155,7 @@ export class FileDiscovery {
 
     const frontmatter = match[1]
     const lines = frontmatter.split('\n')
-    const fixedLines = lines.map(line => {
+    const fixedLines = lines.map((line) => {
       const keyValMatch = line.match(/^(\s*[\w-]+):\s*(.*)$/)
       if (keyValMatch) {
         const key = keyValMatch[1]
@@ -163,13 +163,14 @@ export class FileDiscovery {
 
         // If value is not empty, not quoted, and contains special chars that might confuse YAML
         // We skip values that look like arrays or objects (start with [ or {)
-        if (value &&
-            !value.startsWith('"') &&
-            !value.startsWith("'") &&
-            !value.startsWith("[") &&
-            !value.startsWith("{") &&
-            (value.includes(':') || value.includes('#'))) {
-
+        if (
+          value &&
+          !value.startsWith('"') &&
+          !value.startsWith("'") &&
+          !value.startsWith('[') &&
+          !value.startsWith('{') &&
+          (value.includes(':') || value.includes('#'))
+        ) {
           // Escape existing double quotes
           value = value.replace(/"/g, '\\"')
           return `${key}: "${value}"`
